@@ -9,14 +9,15 @@ class TagsController < ApplicationController
   end
 
   def new
-    @tags = Tag.all
-    @tag = Tag.new
+    @post = Post.find(params[:post_id])
+    @tag = @post.tags.new
   end
 
   def create
-    @tags = Tag.all
-    @tag = Tag.new(tag_params)
+    @post = Post.find(params[:post_id])
+    @tag = @post.tag.new(tag_params)
     if @tag.save
+      flash[:alert] = "Not bad, for a new guy!"
       redirect_to  tags_path
     else
       render :new
@@ -26,6 +27,7 @@ class TagsController < ApplicationController
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy
+    flash[:notice] = "Another one bites the dust!"
     redirect_to tags_path
   end
 

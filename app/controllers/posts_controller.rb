@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @tags = Tag.all
+
   end
 
   def show
@@ -17,6 +19,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @post = Post.new(post_params)
     if @post.save
+      flash[:alert] = "What a badass post!"
       redirect_to  posts_path
     else
       render :new
@@ -39,6 +42,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:notice] = "Aaaaand it's gone"
     redirect_to posts_path
   end
 
