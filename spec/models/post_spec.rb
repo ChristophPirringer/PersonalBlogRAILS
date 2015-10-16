@@ -4,4 +4,5 @@ describe Post do
   it { should validate_presence_of :author }
   it { should validate_presence_of :title }
   it { should validate_presence_of :content }
+  it { should have_many(:tags).through(:posts_tags) }
 end

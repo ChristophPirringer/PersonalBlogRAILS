@@ -1,0 +1,7 @@
+<h1><%= @tag.tag_name %></h1>
+
+<p><%= link_to "Delete", tag_path(@tag),
+                         :data => {:confirm => "You an Admin? Fo' real?",
+                                   :method => "delete"} %></p>
+
+<p><%= link_to "Return to tags", tags_path %></p>
