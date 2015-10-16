@@ -6,7 +6,11 @@
 
 <h3>Tags:</h3>
 <% @post.tags.each do |tag| %>
-  <%= tag.tag_name %><br>
+   <%= link_to tag.tag_name, post_tag_path(@post, tag) %>
+
+  <%= link_to "Delete this tag", post_tag_path(@post, tag),
+                           :data => {:confirm => "You an Admin? Fo' real?",
+                                     :method => "delete"} %>
 <% end %>
 <br>
 <%= link_to 'Add a tag', new_post_tag_path(@post) %>

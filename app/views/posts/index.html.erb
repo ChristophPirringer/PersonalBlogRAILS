@@ -9,7 +9,7 @@
 <h2>Tags:</h2>
 <ul>
   <% @tags.each do |tag| %>
-    <li><%= tag.tag_name %></li>
+    <li><%= link_to tag.tag_name, tag_path(tag) %></li>
   <% end %>
 </ul>
 

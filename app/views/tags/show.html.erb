@@ -1,7 +1,9 @@
 <h1><%= @tag.tag_name %></h1>
 
-<p><%= link_to "Delete", tag_path(@tag),
-                         :data => {:confirm => "You an Admin? Fo' real?",
-                                   :method => "delete"} %></p>
+<h3>Posts with the tag <em><%= @tag.tag_name %></em></h3>
 
-<p><%= link_to "Return to tags", tags_path %></p>
+<% @tag.posts.each do |post| %>
+  <%= link_to post.title, post_path(post) %>
+<% end %>
+
+<p><%= link_to "Return to posts", posts_path %></p>

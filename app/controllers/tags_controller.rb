@@ -4,7 +4,6 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tags = Tag.all
     @tag = Tag.find(params[:id])
   end
 
@@ -27,7 +26,7 @@ class TagsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:post_id])
-    @tag = Tag.find(params[:id])
+    @tag = @post.tags.find(params[:id])
     @tag.destroy
     flash[:notice] = "Another one bites the dust!"
     redirect_to post_path(@post)
