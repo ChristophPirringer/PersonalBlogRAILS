@@ -2,12 +2,4 @@
 
 <!-- error message throwing... error hehehe -->
 
-<%= form_for @post do |post| %>
-  <%= post.label :author %>
-  <%= post.text_field :author %>
-  <%= post.label :title %>
-  <%= post.text_field :title %>
-  <%= post.label :content %>
-  <%= post.text_field :content %>
-  <%= post.submit  %>
-<% end %>
+<%= render "form" %>
