@@ -1,6 +1,6 @@
 <%= render "layouts/errors", :object => @tag %>
 
-<%= form_for @tag do |t| %>
+<%= form_for [@post, @tag] do |t| %>
   <%= t.label :tag_name %>
   <%= t.text_field :tag_name %>
   <%= t.submit %>
