@@ -5,6 +5,21 @@
     <li><%= link_to post.title, post_path(post) %></li>
   <% end %>
 </ul>
+
+
+<% if @posts.any? %>
+  <ul>
+    <%= link_to "New Posts", new_post_path, id: "new-post-form", remote: true %>
+    <div id="new-post-form-receiver"></div>
+  </ul>
+<% else %>
+  <h4>Aint no posts here</h4>
+<% end %>
+
+
+
+
+
 <br><br>
 <h2>Tags:</h2>
 <ul>
@@ -12,8 +27,3 @@
     <li><%= link_to tag.tag_name, tag_path(tag) %></li>
   <% end %>
 </ul>
-
-
-
-<%= link_to "New Posts", new_post_path %>
-<%= link_to "New Tags", new_tag_path %>
